@@ -62,7 +62,7 @@ Result.propTypes = {
   user: PropTypes.shape({
     login: PropTypes.string,
     avatar_url: PropTypes.string,
-    id: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
 };
 

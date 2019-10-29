@@ -6,7 +6,10 @@ import {
   Footer,
   AdvancedSearch,
   ResultsList,
+  Pagination,
 } from 'COMPONENTS';
+
+const LIMIT = 10;
 
 /**
  * This is the Single Page of the App
@@ -15,15 +18,27 @@ const Home = () => {
   const [params, setParams] = useState('');
   const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const handleSearch = async () => {
+  const handleSearch = async (ev, pageNum = currentPage) => {
     try {
       const query = Object.keys(params).map((key) => `${key}=${params[key]}`).join('&');
-      const gitHubResults = await searchGitHub(query);
+      const gitHubResults = await searchGitHub(`${query}&per_page=${LIMIT}&page=${pageNum}`);
+      setTotalCount(gitHubResults.total_count);
       setResults(gitHubResults.items);
     } catch (e) {
       setError(e);
     }
+  };
+
+  /**
+   * Set the query to be passed to GitHub
+   * @param {event} ev
+   */
+  const handlePagination = (ev, pageNum) => {
+    setCurrentPage(pageNum);
+    handleSearch(ev, pageNum);
   };
 
   /**
@@ -40,6 +55,8 @@ const Home = () => {
       handleSearch();
     }
   };
+
+  const numPages = Math.ceil(totalCount / LIMIT);
 
   return (
     <>
@@ -62,10 +79,19 @@ const Home = () => {
             </div>
           )}
 
-          <ResultsList results={results} />
+          <ResultsList
+            results={results}
+            count={totalCount}
+            numPages={numPages}
+            page={currentPage}
+          />
         </div>
+        <Pagination
+          handlePagination={handlePagination}
+          numPages={numPages}
+          currentPage={currentPage}
+        />
       </div>
-
       <Footer />
     </>
   );

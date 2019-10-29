@@ -6,3 +6,4 @@ export { default as Footer } from './Footer/footer';
 export { default as Header } from './Header/header';
 export { default as ResultsList } from './Results/resultsList';
 export { default as AdvancedSearch } from './Search/advancedSearch';
+export { default as Pagination } from './Pagination/pagination';
