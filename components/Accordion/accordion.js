@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-// import css from './style.scss';
 
 /**
  * It takes components as children with the required "label" prop.

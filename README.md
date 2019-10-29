@@ -11,8 +11,19 @@
 
 ### Coding Decisions Made
 
-* Utilize Aliases for calling files within the project
+* Utilize Aliases for calling files within the project (Aliases are all caps)
 * Utilize CSS Modules with SASS implemtation
+* File Structure
+```
+/components
+    |--- NameOfComponent
+        |--- NameOfComponent.js
+        |--- NameOfComponent.scss
+        ... any other related files
+/actions
+/pages // Routing done here.
+next.config.js // takes the place of webpack file
+```
 
 ### Building the App
 `yarn install`

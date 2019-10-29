@@ -1,8 +1,9 @@
 const path = require('path');
 
 const relativeAliases = [
-  ['BASE', './base'],
+  ['BASE', './base/'],
   ['COMPONENTS', './components/'],
+  ['ACTIONS', './actions/'],
 ];
 
 const absoluteAliases = {};
