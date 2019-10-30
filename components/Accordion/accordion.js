@@ -1,4 +1,3 @@
-  
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -9,29 +8,6 @@ import cx from 'classnames';
  * Shows content based on the current active tab.
  */
 class Accordion extends Component {
-  static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]).isRequired,
-    onTabClick: PropTypes.func,
-    id: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    defaultOpen: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-    collapse: PropTypes.bool,
-    showHeader: PropTypes.bool,
-    buttonId: PropTypes.number,
-  }
-
-  static defaultProps = {
-    buttonId: 0,
-    className: '',
-    onTabClick: () => null,
-    defaultOpen: false,
-    collapse: true,
-    showHeader: true,
-  }
-
   constructor(props) {
     super(props);
     const { id, defaultOpen } = this.props;
@@ -101,7 +77,7 @@ class Accordion extends Component {
               className={cx('card', childClass)}
               key={tabId}
             >
-              <div id={`heading-${id}-${buttonId}`} className={cx({ 'card-header': showHeader, /*[css.notCollapsed]: !collapse */})}>
+              <div id={`heading-${id}-${buttonId}`} className={cx({ 'card-header': showHeader })}>
                 <button
                   id={buttonId}
                   className="btn btn-link"
@@ -130,5 +106,28 @@ class Accordion extends Component {
     );
   }
 }
+
+Accordion.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  onTabClick: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  defaultOpen: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  collapse: PropTypes.bool,
+  showHeader: PropTypes.bool,
+  buttonId: PropTypes.number,
+};
+
+Accordion.defaultProps = {
+  buttonId: 0,
+  className: '',
+  onTabClick: () => null,
+  defaultOpen: false,
+  collapse: true,
+  showHeader: true,
+};
 
 export default Accordion;

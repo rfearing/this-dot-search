@@ -8,7 +8,7 @@ const API = axios.create({
 });
 
 export const searchGitHub = (query = '') => (
-  API.get(`/search/users?${query}`)
+  API.get(`/search/users?q=${query}`)
     .then((response) => {
       if (response.status === 200) {
         return response.data;

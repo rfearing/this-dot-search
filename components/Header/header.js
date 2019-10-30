@@ -10,10 +10,10 @@ const Header = ({
   handleQuery,
   handleSearch,
 }) => (
-  <header className={`bg-light ${css.pageHeader}`}>
+  <header className={`shadow-sm bg-light ${css.pageHeader}`}>
     <div className="container pt-4 pb-3">
       <div className="d-flex justify-content-between flex-column flex-md-row">
-        <h1 className={`m-0 text-dark ${css.headerTitle}`}>
+        <h1 className={`text-dark ${css.headerTitle} mb-4 m-md-0`}>
           <FaGithub /> GitHub User Search
         </h1>
 
@@ -32,7 +32,7 @@ const Header = ({
             <button
               type="button"
               className="btn btn-outline-secondary ml-2"
-              onClick={handleSearch}
+              onClick={(ev) => handleSearch(ev, 1)}
             >
               Search
             </button>

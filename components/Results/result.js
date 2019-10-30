@@ -30,7 +30,11 @@ const Result = ({
         </div>
       </div>
     ) : (
-      <button type="button" onClick={handleGetUserData}>
+      <button
+        type="button"
+        onClick={handleGetUserData}
+        className="btn btn-outline-secondary"
+      >
         See User Info
       </button>
     );
