@@ -40,6 +40,10 @@ next.config.js // takes the place of webpack file
 
 * All components and code was developed by Ricardo Fearing unless otherwise noted.
     * Accordion component was built by Ricardo but utilized from a previous project
-* Things I may add in the future:
+* Things I would like to add / To-Do's:
     * Add TypeScript
-    * Utilize other portions of the API
+    * Add Mocha Testing
+* Tested on Mac OS:
+    * Chrome
+    * FireFox
+    * Safari
